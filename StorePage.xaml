@@ -1,0 +1,185 @@
+﻿<Window x:Class="LiberaryProject.StorePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LiberaryProject"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+        WindowState="Maximized"
+      Title="Store Page" Background="#FFD7F8FA">
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="112*"/>
+            <ColumnDefinition Width="137*"/>
+            <ColumnDefinition Width="137*"/>
+            <ColumnDefinition Width="137*"/>
+            <ColumnDefinition Width="137*"/>
+            <ColumnDefinition Width="137*"/>
+            <ColumnDefinition Width="137*"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Eden's Book Store"  HorizontalAlignment="Center" FontSize="45" FontFamily="Gabriola" Foreground="DarkSlateBlue" Grid.Column="4" />
+        <TextBlock x:Name="AdminHeader" Text="(Admin)" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="25" FontFamily="Gabriola" Foreground="DarkSlateBlue" Grid.Column="4" Grid.ColumnSpan="2" Margin="274,26,0,0" />
+        <TextBlock Text="Search:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="25" FontFamily="Gabriola" Foreground="DarkSlateBlue" Grid.Column="7" Width="65" Height="30" />
+        <TextBox x:Name="Searchtxt" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="7" Width="150" FontSize="13" Margin="0,10,57,0"/>
+        <Button x:Name="AddItemBtn" Content="ADD" FontSize="15" Height="23" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" VerticalAlignment="Top" Margin="62,35,124,0" FontWeight="Bold" Cursor="Hand" Click="AddItemBtn_Click" Grid.Column="1"/>
+
+        <Button Name="MagnifireSearchBtn" Width="18" Height="18" Grid.Column="7" Margin="0,10,35,0" VerticalAlignment="Top" HorizontalAlignment="Right" Cursor="Hand" Click="MagnifireSearchBtn_Click">
+            <Image Source="C:\Users\edenm\Desktop\Experiments\WpfApp1\Assets\download.png"/>
+        </Button>
+
+
+
+
+        <DataGrid x:Name="BooksView" ItemsSource="{Binding BooksCollection}" FontSize="14" FontFamily="Arial" AutoGenerateColumns="False" FontWeight="Bold" Margin="62,58,0,46" Grid.ColumnSpan="7" Grid.RowSpan="7"
+                  Background="DarkCyan" GridLinesVisibility="All" HeadersVisibility="All" Grid.Column="1" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Book Name" Binding="{Binding Name}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="FontSize" Value="15"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Author" Binding="{Binding Author}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="FontSize" Value="15"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Category" Binding="{Binding Categories}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="FontSize" Value="15"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Release Date" Binding="{Binding PrintDate}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="FontSize" Value="15"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Edition" Binding="{Binding Edition}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="FontSize" Value="15"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="ISBN" Binding="{Binding ISBN}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="FontSize" Value="15"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Availability" Binding="{Binding InStock}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="FontSize" Value="20"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Price" Binding="{Binding Price}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="FontSize" Value="15"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="FontSize" Value="10"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DockPanel LastChildFill="True" Width="110" HorizontalAlignment="Left" Margin="2,58,0,0" Height="808" Background="DarkCyan"  Grid.RowSpan="6" Grid.ColumnSpan="2" VerticalAlignment="Top">
+
+            <Border Height="35" BorderThickness="1" DockPanel.Dock="Top">
+                <TextBlock Text="Genres:" FontSize="20"  Foreground="AntiqueWhite" TextAlignment="Center" FontFamily="MV Boli"></TextBlock>
+            </Border>
+
+            <Border Height="35" BorderThickness="1" DockPanel.Dock="Top">
+                <Button Background="red" Foreground="Black" FontSize="15" FontWeight="Bold" Cursor="Hand" Click="OnCategoryFilter">Thriller</Button>
+            </Border>
+            <Border Height="35" BorderThickness="1" DockPanel.Dock="Top">
+                <Button Background="Aquamarine" Foreground="Black" FontSize="15" FontWeight="Bold" Cursor="Hand" Click="OnCategoryFilter">Fantasy</Button>
+            </Border>
+
+            <Border Height="35" BorderThickness="1" DockPanel.Dock="Top">
+                <Button Background="MediumPurple" Foreground="Black" FontSize="15" FontWeight="Bold" Cursor="Hand" Click="OnCategoryFilter">Drama</Button>
+            </Border>
+
+            <Border Height="35" BorderThickness="1" DockPanel.Dock="Top">
+                <Button Background="Black" Foreground="White" FontSize="15" FontWeight="Bold" Cursor="Hand" Click="OnCategoryFilter">Horror</Button>
+            </Border>
+
+            <Border Height="35" BorderThickness="1" DockPanel.Dock="Top">
+                <Button Background="DarkTurquoise" Foreground="Black" FontSize="15" FontWeight="Bold" Cursor="Hand" Click="OnCategoryFilter">Science Fiction</Button>
+            </Border>
+
+            <Border Height="35" BorderThickness="1" DockPanel.Dock="Top">
+                <Button Background="YellowGreen" Foreground="Black" FontSize="15" FontWeight="Bold" Cursor="Hand" Click="OnCategoryFilter">Comedy</Button>
+            </Border>
+
+            <Border Height="35" BorderThickness="1" DockPanel.Dock="Top">
+                <Button Background="DeepPink" Foreground="Black" FontSize="15" FontWeight="Bold" Cursor="Hand" Click="OnCategoryFilter">Romance</Button>
+            </Border>
+
+            <Border Height="80" BorderThickness="1" DockPanel.Dock="Top">
+                <Button Background="AntiqueWhite" Foreground="Black" FontSize="15" FontWeight="Bold" Cursor="Hand" Click="RefreshBtn"
+                        >Refresh</Button>
+            </Border>
+
+
+
+            <Border Height="100" BorderThickness="1" DockPanel.Dock="Bottom">
+                <Button Background="DimGray" Foreground="Black" FontSize="20" FontWeight="Bold" Margin="-1,233,1,-169" BorderBrush="Black" FontFamily="MV Boli" Cursor="Hand" Click="btnLogOut_Click">Log-Out</Button>
+            </Border>
+
+
+        </DockPanel>
+
+
+
+
+    </Grid>
+</Window>
